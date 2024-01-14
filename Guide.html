@@ -614,7 +614,7 @@ cannot be accessed, run or modified by others.</p>
 however a starter guide is available here: <a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-python" class="uri">https://conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-python</a></p>
 <p>While a more detailed guide is available here: <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html" class="uri">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a></p>
 <p><b>If you’re new to Python, please contact an administrator who can
-teach you all the necessary details of Conda environments.</b></p>
+teach you all of the necessary details of Conda environments.</b></p>
 <p>Conda environments are not directly backed up, however, we encourage
 users to export a configuration file for each environment to their
 UserSpace (which is backed up). For example:</p>
@@ -639,9 +639,9 @@ lower than 256GB given the multi-user nature of Chronos.</li>
 <li>VMs, unlike Conda, have no access to the GPU i.e. no hardware
 accelerated deep-learning.</li>
 <li>VMs employ lazy-allocation of RAM, but lack the ability to pass
-unused RAM back to the central system once it has finished using it.
-Overtime, VMs therefore accumulate and retain resources that could
-otherwise be freed for use by others.</li>
+unused RAM back to the central system once it has finished using it. VMs
+therefore accumulate and retain resources overtime that could otherwise
+be freed for use by others.</li>
 </ul>
 <p><b>For these reasons, we discourage the use of VMs as the vast
 majority of tasks can be accomplished without one while also taking
