@@ -606,19 +606,21 @@ backed up and cannot be restored in the event of removal.</p>
 <div id="python-users---using-conda" class="section level3">
 <h3><strong>Python Users - Using Conda</strong></h3>
 <p>Chronos supports Conda for the creation and management of
-self-contained Python environments. All Conda installations are
-user-specific, and cannot be accessed, run or modified by others. We
-assume Python users are already familiar with the use of Conda, however
-a starter guide is available here: <a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-python" class="uri">https://conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-python</a></p>
+self-contained Python environments, and is accessible from any Terminal
+connected to Python. All Conda installations are user-specific, and
+cannot be accessed, run or modified by others.</p>
+<p>We assume Python users are already familiar with the use of Conda,
+however a starter guide is available here: <a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-python" class="uri">https://conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-python</a></p>
+<p>While a more detailed guide is available here: <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html" class="uri">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a></p>
 <p><b>If you’re new to Python, please contact an administrator who can
 teach you all the necessary details of Conda environments.</b></p>
 <p>Conda environments are not directly backed up, however, we encourage
 users to export a configuration file for each environment to their
-UserSpace (which is backed up). For example:</p>
+UserSpace (which <i>is</i> backed up). For example:</p>
 <pre class="r"><code>conda activate EnvName
 conda list --explicit &gt; /media/chronos/Storage/tim/Conda_Envs/EnvName.yml</code></pre>
 <p>Which allows for easy and rapid recreation of the environment:</p>
-<pre class="r"><code>conda create --name NewENV --file /media/chronos/Storage/tim/Conda_Envs/EnvName.yml</code></pre>
+<pre class="r"><code>conda create --name NewEnv --file /media/chronos/Storage/tim/Conda_Envs/EnvName.yml</code></pre>
 <p><a name="Section9"></a></p>
 </div>
 <div id="virtual-machine-users---using-virtualbox" class="section level3">
@@ -633,8 +635,8 @@ VMs are limited to running within the confines of the hardware (256GB of
 RAM maximum). In other words, VMs cannot benefit from Chronos’ memory
 compression scheme. In practice, the maximum RAM a VM could use will be
 lower than 256GB given the multi-user nature of Chronos.</li>
-<li>VMs have no access to the GPU i.e. no hardware accelerated
-deep-learning.</li>
+<li>VMs, unlike Conda, have no access to the GPU i.e. no hardware
+accelerated deep-learning.</li>
 <li>VMs employ lazy-allocation of RAM, but lack the ability to pass
 unused RAM back to the central system once it has finished using it.
 Overtime, VMs therefore accumulate and retain resources that could
