@@ -645,13 +645,15 @@ use, see here:</p>
 Port Mapping</a></p>
 <p>Add this port to your installation by first creating a Jupyter
 configuration file:</p>
-<pre class="r"><code>jupyter notebook --generate-config 
-nano ~/.jupyter/jupyter_notebook_config.py</code></pre>
+<pre class="r"><code>jupyter lab --generate-config #Replace &#39;lab&#39; with &#39;notebook&#39; if using jupyter notebook
+nano ~/.jupyter/jupyter_lab_config.py</code></pre>
 <p>And adding the lines:</p>
 <pre class="r"><code>c = get_config()
 c.NotebookApp.ip = &#39;*&#39;
 c.NotebookApp.open_browser = False
 c.NotebookApp.port = 5000 #Replace with your chosen port</code></pre>
+<p>Save the file and launch jupyter:</p>
+<pre class="r"><code>jupyter lab</code></pre>
 <p>Each instance of Jupyter running will require a unique port, however,
 you may use the same port on all Jupyter installations if you plan to
 only run one instance at a time.</p>
