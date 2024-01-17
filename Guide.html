@@ -639,9 +639,9 @@ conda list --explicit &gt; /media/chronos/Storage/tim/Conda_Envs/EnvName.yml</co
 conda environment. For example:</p>
 <pre class="r"><code>conda activate EnvName
 conda install jupyter</code></pre>
-<p>To access Jupyter, each installation must be mapped to a
-user-specific port. To check which ports are available and select one to
-use, see here:</p>
+<p>To access Jupyter, the service must be mapped to a user-specific
+port. To check which ports are available and select one to use, see
+here:</p>
 <p><a href="https://docs.google.com/spreadsheets/d/1Lgrg5COIVHzPpJaEh04WvfRmZ5tyMssl0teET3Y3P1Y/edit?usp=sharing">Chronos
 Port Mapping</a></p>
 <p>Add this port to your installation by first creating a Jupyter
@@ -655,9 +655,10 @@ c.NotebookApp.open_browser = False
 c.NotebookApp.port = 5000 #Replace with your chosen port</code></pre>
 <p>Save the file and launch Jupyter:</p>
 <pre class="r"><code>jupyter lab</code></pre>
-<p>Each instance of Jupyter running will require its own unique port,
-however, you may use the same port on all Jupyter installations if you
-plan to only run one instance at a time.</p>
+<p>This configuration file will apply to Jupyter in all conda
+environments, however, if you wish to run multiple Jupyter instances
+simultaneously you will need to generate separate configuration files
+(each with unique ports) for each instance.</p>
 <p><a name="Section10"></a></p>
 </div>
 <div id="virtual-machine-users---using-virtualbox" class="section level3">
