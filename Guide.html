@@ -489,9 +489,10 @@ needed.</p>
 therefore mandatory Chronos policy that all work, files, scripts and
 data are stored in this area.</b></p>
 <p>In cases where a folder does should not be backed up e.g. it contains
-installed packages, Python environments etc., we recommend excluding
-these from backup using the DNBU (<u>D</u>o <u>N</u>ot
-<u>B</u>ack<u>u</u>p) function. For example:</p>
+installed packages, Python environments, a significant number of files
+(&gt;50,000) etc., we recommend excluding these from backup using the
+DNBU (<u>D</u>o <u>N</u>ot <u>B</u>ack<u>u</u>p) function. For
+example:</p>
 <pre class="r"><code>DNBU add /media/chronos/Storage/tim/FolderToExcludeFromBackup #Exclude this folder and all contents from backup</code></pre>
 <p>To remove an exclusion or check the current exclusion status of a
 given folder:</p>
@@ -644,8 +645,8 @@ conda activate /media/chronos/Storage/tim/Conda_Envs/EnvName</code></pre>
 <p><b>As conda environments often contain ~200,000+ files, please
 exclude these folders from backup (see: <a href="#Section6">Link</a>)</b></p>
 <p>Instead, we encourage users to export a configuration file for each
-environment to another location in their UserSpace (which is backed up).
-For example:</p>
+environment to another location in their UserSpace (which <b>is</b>
+backed up). For example:</p>
 <pre class="r"><code>conda activate /media/chronos/Storage/tim/Conda_Envs/EnvName
 conda list --explicit &gt; /media/chronos/Storage/tim/EnvName.yml</code></pre>
 <p>Which allows for easy and rapid recreation of the environment:</p>
