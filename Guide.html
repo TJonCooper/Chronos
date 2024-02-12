@@ -11,7 +11,7 @@
 
 
 
-<title>Guide.knit</title>
+<title>Chronos User Guide</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -348,12 +348,11 @@ display: none;
 
 
 
+<h1 class="title toc-ignore">Chronos User Guide</h1>
 
 </div>
 
 
-<div id="chronos-user-guide" class="section level2">
-<h2><strong>Chronos User Guide</strong></h2>
 <p>Updated: Jan 14th, 2024</p>
 <style>
 h1.title {font-size: 20px;}
@@ -376,14 +375,15 @@ function toggleImage() {
 <p><a href="#Section4">Where do I store my files on Chronos?</a></p>
 <p><a href="#Section5">How can I transfer files to and from
 Chronos?</a></p>
-<p><a href="#Section6">How can I check the current status of
+<p><a href="#Section6">Are my files safe on Chronos?</a></p>
+<p><a href="#Section7">How can I check the current status of
 Chronos?</a></p>
 <hr />
-<p><a href="#Section7">How do I use R on Chronos?</a></p>
-<p><a href="#Section8">How do I use Python on Chronos?</a></p>
-<p><a href="#Section9">How can I use Jupyter Notebook/Lab on
+<p><a href="#Section8">How do I use R on Chronos?</a></p>
+<p><a href="#Section9">How do I use Python on Chronos?</a></p>
+<p><a href="#Section10">How can I use Jupyter Notebook/Lab on
 Chronos?</a></p>
-<p><a href="#Section10">Can I run my own Virtual Machine on
+<p><a href="#Section11">Can I run my own Virtual Machine on
 Chronos?</a></p>
 <hr />
 <p><a name="Section1"></a></p>
@@ -450,22 +450,11 @@ following command:</p>
 <p>And follow the instructions provided.</p>
 <p><a name="Section4"></a></p>
 </div>
-<div id="user-storage-space-backup" class="section level3">
-<h3><strong>User Storage Space &amp; Backup</strong></h3>
+<div id="user-storage-space" class="section level3">
+<h3><strong>User Storage Space</strong></h3>
 <p>Each user on Chronos has a private storage area that nobody else can
 access or modify, located at:</p>
 <pre class="r"><code>/media/chronos/Storage/[username] #For example: /media/chronos/Storage/tim</code></pre>
-<p>This area is incrementally backed up daily (at 00:00) to our Dropbox
-account.</p>
-<p><b>Note</b>: Backups are mirrors i.e. if you delete a file on
-Chronos, it is deleted on Dropbox. However, Dropbox will retain a
-restorable copy of all deleted files for 6 months. Moreover, Dropbox
-will store versioning information for each file, allowing files to be
-reverted back to an older copy (as far back as 6 months) when
-needed.</p>
-<p><b>Files stored outside of your user-space are NOT backed up. It is
-therefore mandatory Chronos policy that all work, files, scripts and
-data are stored in this area.</b></p>
 <p>A shortcut (“UserSpace”) to this area is present in your /home/
 directory (the default directory of your user upon logging in).</p>
 <p><a name="Section5"></a></p>
@@ -486,33 +475,59 @@ to the Technion LAN (i.e. in the faculty/on campus) and will be
 considerably slower when connected to the VPN at home.</p>
 <p><a name="Section6"></a></p>
 </div>
+<div id="backups" class="section level3">
+<h3><strong>Backups</strong></h3>
+<p>Each UserSpace is incrementally backed up daily (at 00:00) to our
+Dropbox account.</p>
+<p><b>Note</b>: Backups are mirrors i.e. if you delete a file on
+Chronos, it is deleted on Dropbox. However, Dropbox will retain a
+restorable copy of all deleted files for 6 months. Moreover, Dropbox
+will store versioning information for each file, allowing files to be
+reverted back to an older copy (as far back as 6 months) when
+needed.</p>
+<p><b>Files stored outside of your UserSpace are NOT backed up. It is
+therefore mandatory Chronos policy that all work, files, scripts and
+data are stored in this area.</b></p>
+<p>In cases where a folder does should not be backed up e.g. it contains
+installed packages, Python environments etc., we recommend excluding
+these from backup using the DNBU (<u>D</u>o <u>N</u>ot
+<u>B</u>ack<u>u</u>p) function. For example:</p>
+<pre class="r"><code>DNBU add /media/chronos/Storage/tim/FolderToExcludeFromBackup #Exclude this folder and all contents from backup</code></pre>
+<p>To remove an exclusion or check the current exclusion status of a
+given folder:</p>
+<pre class="r"><code>DNBU remove /media/chronos/Storage/tim/FolderToExcludeFromBackup
+DNBU check /media/chronos/Storage/tim/FolderToExcludeFromBackup</code></pre>
+<p><a name="Section7"></a></p>
+</div>
 <div id="server-status" class="section level3">
 <h3><strong>Server Status</strong></h3>
 <p>Once connected (via any Terminal or RStudio), Chronos will
 automatically report its current status to you. For example:</p>
 <pre><b>Server Status:</b>
-Uptime: 0d|1h|55m
+Uptime: 0d|22h|47m
 
 <b>MEMORY</b>
-Memory (RAM): 14GB/256GB <font color="#26A269"><b>[=&gt;                                ]</b></font> 5%
+Memory (RAM): 112GB/251GB <font color="#26A269"><b>[==============&gt;                   ]</b></font> 44%
 # = Compressed Memory
 Disk Swap Memory: 0GB/50GB <font color="#26A269"><b>[&gt;                                 ]</b></font> 0%
 
 <b>DISK SPACE</b>
-User Disk Space: 751GB/9240GB <font color="#26A269"><b>[==&gt;                               ]</b></font> 9%
-System Disk Space: 171GB/627GB <font color="#26A269"><b>[========&gt;                         ]</b></font> 27%
+User Disk Space: 2643GB/9240GB <font color="#26A269"><b>[==========&gt;                       ]</b></font> 31%
+System Disk Space: 212GB/627GB <font color="#26A269"><b>[==========&gt;                       ]</b></font> 33%
+SSD Health: 100%
 
 <b>CPU | GPU</b>
 Average CPU Usage (5m): 0% <font color="#26A269"><b>[&gt;                                 ]</b></font> 0%
-GPU (VRAM): 181MB/49140MB <font color="#26A269"><b>[&gt;                                 ]</b></font> 0%
-CPU Temperature: <font color="#26A269">35.8°C</font> | GPU Temperature: <font color="#26A269">33°C</font>
+GPU (VRAM): 218MB/49140MB <font color="#26A269"><b>[&gt;                                 ]</b></font> 0%
+CPU Temperature: <font color="#26A269">37.0°C</font> | GPU Temperature: <font color="#26A269">35°C</font>
 
 <b>POWER</b>
 Main Power: <font color="#26A269">Online</font>
 
 <b>Currently Logged In:</b>
-tim
 yochay
+merav
+tim
 </pre>
 <p>We recommend users to inspect this to gauge the current workload on
 Chronos, and time their own work accordingly. If, for example, many
@@ -522,7 +537,7 @@ know when you can use Chronos.</p>
 <p>At anytime, you can view updated status using the following command
 on any Terminal:</p>
 <pre class="r"><code>status</code></pre>
-<p><a name="Section7"></a></p>
+<p><a name="Section8"></a></p>
 </div>
 <div id="r-users---using-rstudio" class="section level3">
 <h3><strong>R Users - Using RStudio</strong></h3>
@@ -608,7 +623,7 @@ e.g. dynverse are not supported on Chronos for security reasons.</p>
 <p><b>Note</b>: R environments e.g. the installed packages are not
 backed up and cannot be restored in the event of removal. Please
 re-install packages instead.</p>
-<p><a name="Section8"></a></p>
+<p><a name="Section9"></a></p>
 </div>
 <div id="python-users---using-conda" class="section level3">
 <h3><strong>Python Users - Using Conda</strong></h3>
@@ -621,24 +636,34 @@ however a starter guide is available here: <a href="https://conda.io/projects/co
 <p>While a more detailed guide is available here: <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html" class="uri">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a></p>
 <p><b>If you’re new to Python, please contact an administrator who can
 teach you all of the necessary details. Not all users currently have
-conda installed.</b></p>
-<p>Conda environments are not directly backed up, however, we encourage
-users to export a configuration file for each environment to their
-UserSpace (which is backed up). For example:</p>
-<pre class="r"><code>conda activate EnvName
-conda list --explicit &gt; /media/chronos/Storage/tim/Conda_Envs/EnvName.yml</code></pre>
+conda enabled.</b></p>
+<p>We recommend installing conda environments into your UserSpace. For
+example:</p>
+<pre class="r"><code>conda create --prefix /media/chronos/Storage/tim/Conda_Envs/EnvName python=3.11
+conda activate /media/chronos/Storage/tim/Conda_Envs/EnvName</code></pre>
+<p><b>As conda environments often contain ~200,000+ files, please
+exclude these folders from backup (see: <a href="#Section6">Link</a>)</b></p>
+<p>Instead, we encourage users to export a configuration file for each
+environment to another location in their UserSpace (which is backed up).
+For example:</p>
+<pre class="r"><code>conda activate /media/chronos/Storage/tim/Conda_Envs/EnvName
+conda list --explicit &gt; /media/chronos/Storage/tim/EnvName.yml</code></pre>
 <p>Which allows for easy and rapid recreation of the environment:</p>
-<pre class="r"><code>conda create --name NewEnv --file /media/chronos/Storage/tim/Conda_Envs/EnvName.yml</code></pre>
-<p>You can update your own installation of conda using:</p>
+<pre class="r"><code>conda create --prefix /media/chronos/Storage/tim/Conda_Envs/NewEnv --file /media/chronos/Storage/tim/EnvName.yml</code></pre>
+<p>Lastly, you can update your own installation of conda using:</p>
 <pre class="r"><code>conda update conda</code></pre>
-<p><a name="Section9"></a></p>
+<p><a name="Section10"></a></p>
 </div>
 <div id="python-users---running-jupyter" class="section level3">
 <h3><strong>Python Users - Running Jupyter</strong></h3>
-<p>We recommend installing Juptyer Notebook/Lab into each, individual
+<p>We recommend installing Juptyer Lab/Notebook into each, individual
 conda environment. For example:</p>
 <pre class="r"><code>conda activate EnvName
 conda install jupyter</code></pre>
+<p>We typically recommend using Jupyter Lab, as opposed to Jupyter
+Notebook, as it provides additional functionalities including a
+‘Terminal’ tab which allows you to interact directly with Chronos as you
+would from any SSH-terminal.</p>
 <p>To access Jupyter, the service must be mapped to a user-specific
 port. To check which ports are available and select one to use, see
 here:</p>
@@ -659,7 +684,7 @@ c.NotebookApp.port = 5000 #Replace with your chosen port</code></pre>
 environments, however, if you wish to run multiple Jupyter instances
 simultaneously you will need to generate separate configuration files
 (each with unique ports) for each instance.</p>
-<p><a name="Section10"></a></p>
+<p><a name="Section11"></a></p>
 </div>
 <div id="virtual-machine-users---using-virtualbox" class="section level3">
 <h3><strong>Virtual Machine Users - Using VirtualBox</strong></h3>
@@ -704,7 +729,6 @@ Boot VM [1], Shutdown VM [2], Modify VM [3], Backup VM [4], Cancel [5]
 Please select an option: 
 </pre>
 <p>All VMs run their own SSH server for direct access once booted.</p>
-</div>
 </div>
 
 
