@@ -406,8 +406,8 @@ currently has the following specifications:</p>
 <p>Nevertheless, despite the main purpose of Chronos, the system is
 optimized for multi-user workloads and we encourage you to freely use
 the system when needed, or as your daily work-machine if you so wish. If
-Chronos is currently experiencing an extremely high workload (see: <a href="#Section6">Link</a>), please consult with those currently logged
-in to know when resources will be freed.</p>
+Chronos is currently experiencing an extremely high workload (see: <a href="#Section7">Section 7 - Status</a>), please consult with those
+currently logged in to know when resources will be freed.</p>
 <p>Most of all, Chronos was built with freedom in mind - the freedom to
 prototype and try new things without fear of a monthly bill.</p>
 <p><i><b>*</b>Chronos employs sophisticated memory compression
@@ -434,9 +434,10 @@ Port: 22</code></pre>
 solution that will allow you to connect to Chronos but also
 manage/transfer files to and from the server (<a href="https://mobaxterm.mobatek.net/" class="uri">https://mobaxterm.mobatek.net/</a>) or WinSCP for file
 management only (<a href="https://winscp.net/eng/index.php" class="uri">https://winscp.net/eng/index.php</a>).</p>
-<p>For R users, equivalent access is also provided directly through
-RStudio (see: <a href="#Section7">Link</a>) without the need to connect
-separately.</p>
+<p>For R and Python users, equivalent access is also provided directly
+through RStudio (see: <a href="#Section8">Section 8 - RStudio</a>) and
+Jupyter Lab (see: <a href="#Section10">Section 10 - Jupyter</a>)
+respectively - without the need to connect separately.</p>
 <p>In all cases, you will need to provide your username and
 password.</p>
 <p><a name="Section3"></a></p>
@@ -445,8 +446,8 @@ password.</p>
 <h3><strong>Changing Passwords</strong></h3>
 <p>One of the first tasks we recommend you do after connecting to
 Chronos for the first time is to change your password. From any
-SSH-terminal (or via Rstudio, see: <a href="#Section6">Link</a>) use the
-following command:</p>
+SSH-terminal (or via Rstudio/Jupyter Lab, see: <a href="#Section8">Section 8 - RStudio</a> and <a href="#Section10">Section 10 - Jupyter</a>) use the following
+command:</p>
 <pre class="r"><code>passwd</code></pre>
 <p>And follow the instructions provided.</p>
 <p><a name="Section4"></a></p>
@@ -468,8 +469,8 @@ directory (the default directory of your user upon logging in).</p>
 <li>Using an SSH-client e.g. MobaXTerm or SSH-enabled file manager
 e.g. WinSCP - which will allow you to drag and drop files to and from
 your UserSpace.</li>
-<li>Via RStudio itself (see: <a href="#Section7">Link</a>) which
-supports file upload/download.</li>
+<li>Via RStudio itself (see: <a href="#Section8">Section 8 -
+RStudio</a>) which supports file upload/download.</li>
 </ul>
 <p><b>Note</b>: Optimal transfer speeds will be achieved when connected
 to the Technion LAN (i.e. in the faculty/on campus) and will be
@@ -491,9 +492,9 @@ therefore mandatory Chronos policy that all work, files, scripts and
 data are stored in this area.</b></p>
 <p>In cases where a folder does should not be backed up e.g. it contains
 installed packages, Python environments, a significant number of files
-(&gt;50,000) etc., we recommend excluding these from backup using the
-DNBU (<u>D</u>o <u>N</u>ot <u>B</u>ack<u>u</u>p) function. For
-example:</p>
+or small files (e.g. &gt;10,000) etc., we recommend excluding these from
+backup using the DNBU (<u>D</u>o <u>N</u>ot <u>B</u>ack<u>u</u>p)
+function. For example:</p>
 <pre class="r"><code>DNBU add /media/chronos/Storage/tim/FolderToExcludeFromBackup #Exclude this folder and all contents from backup</code></pre>
 <p>To remove an exclusion or check the current exclusion status of a
 given folder:</p>
@@ -622,7 +623,7 @@ CATALYST
 diffcyt</code></pre>
 <p><b>Note</b>: R packages requiring access to Docker/Singularity
 e.g. dynverse are not supported on Chronos for security reasons.</p>
-<p><b>Note</b>: R environments e.g. the installed packages are not
+<p><b>Note</b>: R environments e.g. the installed packages, are not
 backed up and cannot be restored in the event of removal. Please
 re-install packages instead.</p>
 <p><a name="Section9"></a></p>
@@ -644,7 +645,7 @@ example:</p>
 <pre class="r"><code>conda create --prefix /media/chronos/Storage/tim/Conda_Envs/EnvName python=3.11
 conda activate /media/chronos/Storage/tim/Conda_Envs/EnvName</code></pre>
 <p><b>As conda environments often contain ~200,000+ files, please
-exclude the corresponding folders from backup (see: <a href="#Section6">Link</a>)</b></p>
+exclude the corresponding folders from backup (see: <a href="#Section6">Section 6 - Backups</a>)</b></p>
 <p>Instead, we encourage users to export a configuration file for each
 environment to another location in their UserSpace (which <b>is</b>
 backed up). For example:</p>
